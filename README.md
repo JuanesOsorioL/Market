@@ -1,2 +1,2 @@
 # Market
-Proyecto de Programación Distribuida 2023
+Proyecto en clase de Programación Distribuida 2023
