@@ -1,3 +1,5 @@
+using Market.API.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +8,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+//Inyeccionde dependencias a SQL Server
+builder.Services.AddDbContext<DataContext>(X => X.UseSqlServer("DefaultConnection"));
+
+
 
 var app = builder.Build();
 
