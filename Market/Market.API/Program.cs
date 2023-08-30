@@ -1,4 +1,5 @@
 using Market.API.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,8 +11,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //Inyeccionde dependencias a SQL Server
-builder.Services.AddDbContext<DataContext>(X => X.UseSqlServer("DefaultConnection"));
+builder.Services.AddDbContext<DataContext>(X => X.UseSqlServer("name=DefaultConnection"));
 
+builder.Services.AddScoped(sp => new HttpClient{BaseAddress = new Uri("https://localhost:8000")});
 
 
 var app = builder.Build();
